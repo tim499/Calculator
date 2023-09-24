@@ -1,7 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include <ctype.h>
 #include "libs/fsyscal.h"
 
 #define MAX 10000
@@ -12,6 +12,8 @@ int main()
 {
     int x = 0;
     int index = 0;
+    long int operf = 0;
+    long int opers = 0;
     char inString[MAX];
     /*Header text*/
     goto loop;    
@@ -45,6 +47,21 @@ loop:
         operator_input();
     }
     while(operatorCondition == 0);
+    
+    do
+    {
+        printf("put the first operand (number): ");
+        operand_input(&operf);
+    }
+    while(operf <= 0);
+    
+    do
+    {
+        printf("put the second operand (number): ");
+        operand_input(&opers);
+    }
+    while(opers <= 0);
+
 
     return 0;
 }

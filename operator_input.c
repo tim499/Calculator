@@ -9,7 +9,7 @@ void operator_input(void)
     int index = 0;
     char userSquare[1000];
     const char cOperators[5] = {'+', '-', '*', '/', '^'};
-    const char square[5] = {'s', 'q', 'r', 't', '\0'};
+    const char square[] = "sqrt";
     int a;
 
     while((a = getchar()) != '\n')
