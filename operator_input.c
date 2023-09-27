@@ -6,29 +6,37 @@ extern int operatorCondition;
 
 void operator_input(void)
 {
-    int index = 0;
-    char userSquare[1000];
-    const char cOperators[5] = {'+', '-', '*', '/', '^'};
-    const char square[] = "sqrt";
-    int a;
+    /*| 1 | 2 | 3 | 4 | 5 |  6   |
+    * | + | - | * | / | ^ | sqrt |*/
 
-    while((a = getchar()) != '\n')
+    char a[MAX];
+    char operators[] = {'+', '-', '*', '/', '^'};
+    char squareWord[] = "sqrt";
+    int opIndex;
+
+    do
     {
-        for(int cIndex = 0; cIndex < 5; cIndex++)
+        scanf("%s", a);
+
+        for(opIndex = 0; opIndex < 5; ++opIndex)
         {
-            if(a == cOperators[cIndex])
+            if(a[0] == operators[opIndex])
             {
-                operatorCondition = cIndex + 1;
+                operatorCondition = opIndex + 1;
             }
         }
-        userSquare[index++] = a;
-    }
-    userSquare[index] = '\0';
-    if(operatorCondition == 0)
-    {
-        if(strcmp(userSquare, square) == 0)
+
+        if(operatorCondition == 0)
         {
-          operatorCondition = 6; 
+            if(strcmp(a, squareWord) == 0)
+            {
+                operatorCondition = 6;
+            }
+
+            else
+            {
+                printf("Error: Incorect operator. Put operator again: ");
+            }
         }
-    }
+    }while(operatorCondition == 0);
 }

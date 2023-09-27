@@ -1,20 +1,16 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <math.h>
 #include "libs/fsyscal.h"
-
-#define MAX 10000
 
 int operatorCondition = 0;
 
 int main()
 {
     int x = 0;
-    int index = 0;
-    long int operf = 0;
-    long int opers = 0;
-    char inString[MAX];
+    long int operf;
+    long int opers;
+    double result;
+
     /*Header text*/
     goto loop;    
     
@@ -41,27 +37,63 @@ loop:
     printf("+, -,*,/,^,sqrt.");
 
     /*first input*/
-    do 
-    {
-        printf("put the operation: ");
-        operator_input();
-    }
-    while(operatorCondition == 0);
+    printf("Put the operation: ");
+    operator_input();
     
-    do
+    /*second input*/
+    if(operatorCondition < 6)
     {
         printf("put the first operand (number): ");
         operand_input(&operf);
-    }
-    while(operf <= 0);
-    
-    do
-    {
+
         printf("put the second operand (number): ");
         operand_input(&opers);
-    }
-    while(opers <= 0);
 
+        if(operatorCondition == 1)
+        {
+            result = operf + opers;
+            printf("Your sum is: %.0f\n", result);
+        }
+
+        else if(operatorCondition == 2)
+        {
+            result = operf - opers;
+            printf("Your difference is: %.0f\n", result);
+        }
+
+        else if(operatorCondition == 3)
+        {
+            result = operf * opers;
+            printf("Your product is: %.0f\n", result);
+        }
+
+        else if(operatorCondition == 4)
+        {
+            result = (double)operf / (double)opers;
+            printf("Your division result is: %f\n", result);
+        }
+
+        else if(operatorCondition == 5)
+        {
+            result = pow(operf, opers);
+            printf("Your degree result is: %.0f\n", result);
+        }
+
+    }
+
+    else if(operatorCondition == 6)
+    {
+        printf("put the operand (number): ");
+        operand_input(&operf);
+        result = sqrt(operf);
+        printf("Your square root is: %f\n", result);
+    }
+
+    else
+    {
+        printf("Critical error\n");
+        return 1;
+    }
 
     return 0;
 }

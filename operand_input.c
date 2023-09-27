@@ -1,20 +1,30 @@
+#include "libs/fsyscal.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 void operand_input(long int *operand)
 {
-    int a;
-    char value[1000];
-    int index = 0;
-
-    while((a = getchar()) != '\n')
+    char a[1000];
+    int p = 0;
+    int index;
+    do 
     {
-        if(a >= '0' && a <= '9')
+        scanf("%s", a);
+
+        for(index = 0; *(a + index) != '\0'; ++index)
         {
-            value[index++] = a;
+            if(*(a + index) >= '0' && *(a + index) <= '9')
+            {
+                p = 0;
+            }
+            else
+            {
+                printf("Error: you put another character, but not numder. Put operand again: ");
+                p = 1;
+                break;
+            }
         }
-    }
-    value[index] = '\0';
-    *operand = atoi(value);
+    }while(p == 1);
+    *operand = atoi(a);
 }
+
