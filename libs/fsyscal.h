@@ -4,6 +4,6 @@
 #define MAX 10000
 
 void operator_input(void);
-void operand_input(long int *p);
+void operand_input(double *p);
 
 #endif

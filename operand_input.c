@@ -2,19 +2,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void operand_input(long int *operand)
+extern int comaP;
+
+void operand_input(double *operand)
 {
     char a[1000];
     int p = 0;
-    int index;
+    int index = 0;
+    float *flOperand;
     do 
     {
         scanf("%s", a);
 
-        for(index = 0; *(a + index) != '\0'; ++index)
+        if(*a == '-')
+        {
+            index = 1;
+            p = 0;
+        }
+
+        for(; *(a + index) != '\0'; ++index)
         {
             if(*(a + index) >= '0' && *(a + index) <= '9')
             {
+                p = 0;
+            }
+
+            else if(*(a + index) == '.' && comaP == 1)
+            {
+                comaP = 0;
                 p = 0;
             }
             else
@@ -25,6 +40,15 @@ void operand_input(long int *operand)
             }
         }
     }while(p == 1);
-    *operand = atoi(a);
+
+    if(comaP == 1)
+    {
+        *operand = atoi(a);
+    }
+
+    else if(comaP == 0)
+    {
+        *operand = atof(a);
+    }
 }
 
