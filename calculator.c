@@ -47,6 +47,8 @@ loop:
         printf("put the first operand (number): ");
         operand_input(&operf);
 
+        comaP = 1;
+
         printf("put the second operand (number): ");
         operand_input(&opers);
 

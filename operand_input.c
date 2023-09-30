@@ -9,7 +9,6 @@ void operand_input(double *operand)
     char a[1000];
     int p = 0;
     int index = 0;
-    float *flOperand;
     do 
     {
         scanf("%s", a);
