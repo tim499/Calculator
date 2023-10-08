@@ -8,6 +8,8 @@ int operatorCondition = 0;
 int main(int argc, char *argv[])
 {
     int x = 0;
+    int reserve1;
+    int reserve2;
     double operf;
     double opers;
     double result;
@@ -35,7 +37,7 @@ loop:
     
     printf("In this terminal calculator you can do addition, subtraction, multiplication, division,");
     printf("raising to a degree, and taking the square root. These operations correspond to symbols:");
-    printf("+, -,*,/,^,sqrt.");
+    printf("+,-,*,/,^,sqrt.");
 
     /*first input*/
     printf("Put the operation: ");
@@ -46,21 +48,23 @@ loop:
     {
         printf("put the first operand (number): ");
         operand_input(&operf);
-
+        
+        reserve1 = comaP;
         comaP = 1;
 
         printf("put the second operand (number): ");
         operand_input(&opers);
+        reserve2 = comaP;
 
         if(operatorCondition == 1)
         {
             result = operf + opers;
-            if(comaP == 1)
+            if((reserve1 == 1) && (reserve2 == 1))
             {
                 printf("Your sum is: %.0f\n", result);
             }
 
-            else if(comaP == 0)
+            else if((reserve1 == 0) || (reserve2 == 0))
             {
                 printf("Your sum is: %f\n", result);
             }
@@ -69,12 +73,12 @@ loop:
         else if(operatorCondition == 2)
         {
             result = operf - opers;
-            if(comaP == 1)
+            if((reserve1 == 1) && (reserve2 == 1))
             {
                 printf("Your difference is: %.0f\n", result);
             }
 
-            else if(comaP == 0)
+            else if((reserve1 == 0) || (reserve2 == 0))
             {
                 printf("Your difference is: %f\n", result);
             }
@@ -83,12 +87,12 @@ loop:
         else if(operatorCondition == 3)
         {
             result = operf * opers;
-            if(comaP == 1)
+            if((reserve1 == 1) && (reserve2 == 1))
             {
                 printf("Your product is: %.0f\n", result);
             }
 
-            else if(comaP == 0)
+            else if((reserve1 == 0) || (reserve2 == 0))
             {
                 printf("Your product is: %f\n", result);
             }

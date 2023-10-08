@@ -33,7 +33,7 @@ void operand_input(double *operand)
             }
             else
             {
-                printf("Error: you put another character, but not numder. Put operand again: ");
+                printf("Error: you put another character, but not number. Put operand again: ");
                 p = 1;
                 break;
             }
@@ -50,4 +50,3 @@ void operand_input(double *operand)
         *operand = atof(a);
     }
 }
-
