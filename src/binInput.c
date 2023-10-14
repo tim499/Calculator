@@ -2,20 +2,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "libs/fconv.h"
+#include "../libs/fconv.h"
 
 void binInput(char *s)
 {
-    char str[1000];
     int p = 0;
 
     do 
     {
-        scanf("%s", str);
+        scanf("%s", s);
 
-        for(int i = 0; *(str + i) != '\0'; i++)
+        for(int i = 0; *(s + i) != '\0'; i++)
         {
-            if((*(str + i) == 0) || (*(str + i) == 1))
+            if((*(s + i) == '0') || (*(s + i) == '1'))
             {
                 p = 0;
             }

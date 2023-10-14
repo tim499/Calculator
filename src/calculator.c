@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-#include "libs/fsyscal.h"
-#include "libs/fconv.h"
-#include "libs/fsqmath.h"
+#include "../libs/fsyscal.h"
+#include "../libs/fconv.h"
+#include "../libs/fsqmath.h"
 
 int comaP = 1;
 int operatorCondition = 0;
@@ -138,9 +138,9 @@ int main(int argc, char *argv[])
     else if(strcmp(*(argv + 1), optionS) == 0)
     {
         char binStr[1000];
-        char string[MAX];
-        int decNum;
+        unsigned int decNum;
         char *dec;
+        unsigned int binNum;
 
         goto cLoop;
     
@@ -172,6 +172,8 @@ int main(int argc, char *argv[])
         {
             printf("Put your binary number: ");
             binInput(binStr);
+            binNum = binaryf(binStr);
+            printf("Your result is %d\n", binNum);
         }
 
         else if(typeP == 2)

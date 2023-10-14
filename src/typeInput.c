@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "libs/fconv.h"
-#include "libs/fsyscal.h"
+#include "../libs/fconv.h"
+#include "../libs/fsyscal.h"
 
 extern int typeP;
 

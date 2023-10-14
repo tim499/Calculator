@@ -2,9 +2,9 @@
 #define _FCONV_H 
 
 void typeInput(void);
-void decInput(int *np);
+void decInput(unsigned *np);
 void binInput(char *s);
-int binaryf(int *p);
+unsigned int binaryf(char *p);
 char *decimalf(unsigned num);
 
 #endif

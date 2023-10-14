@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "libs/fconv.h"
+#include "../libs/fconv.h"
 
-void decInput(int *np)
+void decInput(unsigned int *np)
 {
     char string[1000];
     int p = 0;
