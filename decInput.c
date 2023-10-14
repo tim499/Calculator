@@ -6,7 +6,7 @@
 void decInput(int *np)
 {
     char string[1000];
-    int p;
+    int p = 0;
 
     do 
     {
@@ -23,6 +23,7 @@ void decInput(int *np)
             {
                 p = 1;
                 printf("Error: you not put a number. Put number again: ");
+                break;
             }
         }
     }while(p == 1);

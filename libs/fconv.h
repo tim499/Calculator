@@ -5,6 +5,6 @@ void typeInput(void);
 void decInput(int *np);
 void binInput(char *s);
 int binaryf(int *p);
-char *decimalf(int num);
+char *decimalf(unsigned num);
 
 #endif

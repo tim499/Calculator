@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include <string.h>
 #include "libs/fsyscal.h"
@@ -139,6 +140,7 @@ int main(int argc, char *argv[])
         char binStr[1000];
         char string[MAX];
         int decNum;
+        char *dec;
 
         goto cLoop;
     
@@ -176,6 +178,19 @@ int main(int argc, char *argv[])
         {
             printf("Put your decimal number: ");
             decInput(&decNum);
+            dec = decimalf(decNum);
+            if(dec != NULL)
+            {
+                printf("Your result is: %s\n", dec);
+                free(dec);
+            }
+
+            else
+            {
+                free(dec);
+                printf("Critical error\n");
+                return 1;
+            }
         }
 
         else

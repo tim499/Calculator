@@ -7,7 +7,7 @@
 void binInput(char *s)
 {
     char str[1000];
-    int p;
+    int p = 0;
 
     do 
     {
@@ -24,6 +24,7 @@ void binInput(char *s)
             {
                 p = 1;
                 printf("Error: you do mistake with this number. Put number again: ");
+                break;
             }
         }
     }while(p == 1);

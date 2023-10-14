@@ -10,10 +10,17 @@ void typeInput(void)
 {
     char *types[] = {"binary", "decimal"};
     char input[MAX];
+    int a;
+    int i;
 
     do 
     {
-        scanf("%s", input);
+        for(i = 0; (a = getchar()) != '\n'; i++)
+        {
+            *(input + i) = a;
+        }
+        *(input + i) = '\0';
+
 
         if(strcmp(input, *types) == 0)
         {
@@ -27,7 +34,7 @@ void typeInput(void)
 
         else
         {
-            printf("Error: you put not a keyword (binary or decimal)\n");
+            printf("Error: you put not a keyword (binary or decimal): ");
         }
     }while(typeP == 0);
 }
