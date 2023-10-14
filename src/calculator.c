@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <math.h>
-#include "libs/fsyscal.h"
+#include "../libs/fsyscal.h"
 
 int comaP = 1;
 int operatorCondition = 0;
