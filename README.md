@@ -1,5 +1,14 @@
 # Calculator. Release of v.0.1
 
+## **Table of Contents**
+
+- [Calculator. Release of v.0.1](#calculator-release-of-v01)
+    - [Description of condition](#description-of-condition)
+    - [How it works](#how-it-works)
+    - [Features](#features)
+        - [Features, which available now](#features-which-available-now)
+        - [Features, which will available in future](#features-which-will-available-in-future)
+
 ## Description of condition
 
 This repository presents a console calculator written in pure C.
