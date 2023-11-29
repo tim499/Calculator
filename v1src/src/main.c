@@ -9,8 +9,6 @@ int typeP = 0;
 
 int main(int argc, char *argv[])
 {
-    char *config_path = getenv("HOME");
-
     if(argc == 1)
     {
         printf("test\n");
@@ -23,23 +21,7 @@ int main(int argc, char *argv[])
 
     else if((strcmp(*(argv + 1), "-h") == 0) || (strcmp(*(argv + 1), "--help") == 0))
     {
-        if(config_path == NULL)
-        {
-            printf("ERROR: can't find variable\n");
-        }
-
-        else
-        {
-            FILE *manptr = fopen(strcat(config_path, "/.config/CCalculator/doc/man.txt"), "r");
-
-            while(fgetc(manptr) != EOF)
-            {
-                char *a = (char *)malloc(sizeof(char) * 10000);
-                fscanf(manptr, "%s", a);
-                printf("%s", a);
-                free(a);
-            }
-        }
+        helper();
     }
 
     else if(strcmp(*(argv+1), "-C") == 0)
@@ -86,6 +68,17 @@ int main(int argc, char *argv[])
             printf("Critical error\n");
             return 1;
         }
+    }
+
+    else if(strcmp(*(argv+1), "-B") == 0)
+    {
+        return 0;
+    }
+
+    else
+    {
+        printf("ERROR: your otion is unavailable. Check the manual.\n");
+        helper();
     }
 
     return 0;

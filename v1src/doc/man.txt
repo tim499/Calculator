@@ -1,0 +1,8 @@
+CCalculator manual
+
+Syntax : CCalculator [-options]
+Availale options:
+    No options      Enable a normal mode
+    -v,--version    Display a current version
+    -C              Enable a number system converter mode
+    -B              Enable a boolean mode
