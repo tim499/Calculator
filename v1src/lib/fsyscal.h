@@ -2,8 +2,8 @@
 #define FSYSCAL 
 
 #define VER "CCalculator version = 1.0"
-#define MAX 10000
-#define BUFFER_SIZE 1024
+#define MAX 1000
+#define BUFFER_SIZE 1025
 
 typedef struct stack_p
 {

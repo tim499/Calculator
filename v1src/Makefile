@@ -1,12 +1,8 @@
-ConvSource = src/typeInput.c src/decimalf.c \
-		 src/decInput.c src/binInput.c \
-		 src/binaryf.c
+ConvSource = src/conv_input.c
+ConvObject = conv_input.o
 
-SysSource = src/helper.c
-SysObject = helper.o
-
-objects = typeInput.o decimalf.o decInput.o binInput.o \
-				  binaryf.o
+SysSource = src/helper.c src/stackf.c
+SysObject = helper.o stackf.o
 
 CC = clang
 
@@ -14,20 +10,20 @@ flags = -Wall -Wextra -Werror
 
 .PHONY : clean install
 
-CCalculator : main.o $$HOME/.config/CCalculator/lib/libfconv.so $$HOME/.config/CCalculator/lib/libfsys.so
-	$(CC) -g3 -o  CCalculator main.o $$HOME/.config/CCalculator/lib/libfconv.so $$HOME/.config/CCalculator/lib/libfsys.so\
-		-Wl,-rpath,$$HOME/.config/CCalculator/lib/ -lm
+CCalculator : main.o /lib64/CCalculator/libfconv.so /lib64/CCalculator/libfsys.so
+	$(CC) -g3 -o  CCalculator main.o /lib64/CCalculator/libfconv.so /lib64/CCalculator/libfsys.so\
+		-Wl,-rpath,/lib64/CCalculator/ -lm
 
 main.o : src/main.c lib/fsyscal.h lib/fconv.h
 	$(CC) -c -g3 $(flags) src/main.c 
 
-$$HOME/.config/CCalculator/lib/libfsys.so : $(SysObject) 
-	$(CC) -shared -o $$HOME/.config/CCalculator/lib/libfsys.so $(SysObject)
+/lib64/CCalculator/libfsys.so : $(SysObject) 
+	$(CC) -shared -o /lib64/CCalculator/libfsys.so $(SysObject)
 
-$$HOME/.config/CCalculator/lib/libfconv.so: $(objects) 
-	$(CC) -shared -o $$HOME/.config/CCalculator/lib/libfconv.so $(objects)
+/lib64/CCalculator/libfconv.so: $(ConvObject) 
+	$(CC) -shared -o /lib64/CCalculator/libfconv.so $(ConvObject)
 
-$(objects) : $(ConvSource) lib/fconv.h lib/fsyscal.h
+$(ConvObject) : $(ConvSource) lib/fconv.h lib/fsyscal.h
 	$(CC) -c -g3 $(flags) -fpic $(ConvSource)
 
 $(SysObject) : $(SysSource) lib/fsyscal.h

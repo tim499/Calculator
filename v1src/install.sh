@@ -1,2 +1,3 @@
 #!/bin/bash
-make && su -c "make install" && make clean
+su -c "mkdir /lib64/CCalculator"
+su -c "make CCalculator install clean"
